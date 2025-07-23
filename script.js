@@ -16,12 +16,12 @@ function DisplayButtons(buttonsCont, sounds){
 		btn.classList.add('btn');
 		btn.innerText = sound;
 
-		SoundBtnClick(btn);
+		SoundBtnClick(btn, sound);
 		buttonsCont.appendChild(btn);
 	})
 }
 
-function SoundBtnClick(btn){
+function SoundBtnClick(btn,sound){
 	btn.addEventListener("click", () => {
 		StopAllSounds();
 		const audio = new Audio(`sounds/${sound}.mp3`);
