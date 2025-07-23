@@ -1,4 +1,6 @@
 //your JS code here. If required.
+let activeAudio = null;
+
 document.addEventListener("DOMContentLoaded", function(){
 
 	const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
@@ -23,20 +25,12 @@ function DisplayButtons(buttonsCont, sounds){
 
 function SoundBtnClick(btn,sound){
 	btn.addEventListener("click", () => {
-		StopAllSounds();
-		const audio = new Audio(`sounds/${sound}.mp3`);
-		audio.play();
-		audio.appendChild(audio);
-	})
-}
-
-function StopAllSounds(){
-	const allAudios = document.querySelectorAll('audio');
-
-	allAudios.forEach((audio) => {
-		audio.pause();
-		audio.currentTime = 0;
-		audio.remove();
+		if (activeAudio) {
+			activeAudio.pause();
+			activeAudio.currentTime = 0;
+		}
+		activeAudio = new Audio(`sounds/${sound}.mp3`);
+		activeAudio.play();
 	})
 }
 
@@ -46,7 +40,11 @@ function StopBtn(buttonsCont){
 	stopBtn.innerText = "Stop";
 
 	stopBtn.addEventListener("click", () => {
-		StopAllSounds();
+		if (activeAudio) {
+			activeAudio.pause();
+			activeAudio.currentTime = 0;
+			activeAudio = null;
+		}
 	})
 
 	buttonsCont.appendChild(stopBtn);
