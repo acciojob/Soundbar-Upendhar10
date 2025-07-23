@@ -1,1 +1,43 @@
 /*  your css code here. If applicable */
+body {
+	background-color: #9b59b6;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#buttons {
+	max-width:75%;
+	margin:0 auto;
+	display: flex;
+    gap: 1.5rem;
+	flex-wrap: wrap;	
+}
+
+.btn, 
+.stop {
+	padding: 20px 30px;
+    font-size: 18px;
+	border: none;
+    border-radius: 5px;
+    background-color: #5e3393;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;	
+}
+
+.btn:hover, 
+.stop:hover {
+	background-color: #471c7e;
+}
+
+
+
+
+
+
+
+
